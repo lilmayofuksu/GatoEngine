@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "GatoEngine"
+version = "0.1.0"
+description = ""
+authors = ["ayy lmao"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+loguru = "^0.6.0"
+betterproto = {version = "2.0.0b5", extras = ["compiler"]}
+Cython = "^0.29.32"
+pycryptodome = "^3.16.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

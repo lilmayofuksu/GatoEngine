@@ -1,0 +1,3 @@
+[submodule "mhycrypto"]
+	path = mhycrypto
+	url = https://github.com/lilmayofuksu/MHYCrypto
