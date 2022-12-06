@@ -31,7 +31,7 @@ class Packet:
 
         self.head = PacketHead().parse(buf.read(metadata_len))
 
-        proto_class = getattr(proto, self.cmdid.name, None)
+        proto_class = getattr(proto, betterproto.casing.pascal_case(self.cmdid.name), None)
 
         if data_len:
             self.body = proto_class().parse(buf.read(data_len))

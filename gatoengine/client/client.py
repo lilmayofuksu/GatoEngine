@@ -1,11 +1,17 @@
 from typing import Callable
 from enum import Enum
 import traceback
+import datetime
+import threading
+import os
+import json
 
 from betterproto import Message
 from loguru import logger
 
 from gatoengine.protocol.cmdid import CmdID
+from gatoengine.protocol.proto import PingReq
+
 from gatoengine.network.kcp_socket import _Address, KcpSocket
 from gatoengine.network.packet import Packet
 
@@ -34,21 +40,44 @@ class HandlerRouter:
 class ConnectStatus(Enum):
     NOT_CONNECTED = 1
     CONNECTED = 2
+    LOGGED_IN = 3
 
 class Client:
-    def __init__(self, dst_server: _Address, key_id: int):
+    def __init__(self, dst_server: _Address, key_id: int, initial_key: bytes):
         self.router = HandlerRouter()
         self.dst_server = dst_server
 
         self.sock = KcpSocket()
         self.status = ConnectStatus.NOT_CONNECTED
 
-        self.key_id = key_id
+        self.hoyouid = ""
+        self.combo_token = ""
+
         self.client_seed = 0
-        self.key = b''
+        self.key_id = key_id
+        self.key = initial_key
+        self.report_data = b''
+
+        self.starttime = datetime.datetime.now()
+        self.pingtime = datetime.datetime.now()
+
+        self.thread: threading.Thread = None
+
+        if not os.path.isfile("gatoengine/resources/private_info.json"):
+            raise Exception("Can't find private_info.json! Make sure to edit the template to add login informations.")
+        else:
+            with open("gatoengine/resources/private_info.json", "r") as f:
+                config = json.load(f)
+
+                self.hoyouid = config["hoyoUid"]
+                self.combo_token = config["comboToken"]
+
 
     def add(self, router: HandlerRouter):
         self.router.add(router)
+    
+    def run(self):
+        self.loop()
 
     def do_login(self):
         if handler := self.router.get(CmdID.GetPlayerTokenReq):
@@ -58,18 +87,19 @@ class Client:
 
     def handle(self, data: bytes):
         data = mhycrypt.xor(data, self.key)
-        logger.debug(f'[S] {data.hex()}')
+        #logger.debug(f'[S] {data.hex()}')
         try:
             packet = Packet().parse(data)
         except Exception:
-            logger.error(f'Exception occured while parsing this data: {data.hex()}')
+            logger.error(f'Exception occured while parsing packet: {data.hex()}')
             logger.error(traceback.format_exc())
             return
 
         if handler := self.router.get(packet.cmdid):
+            logger.debug(f'[S] {packet.cmdid}:{packet.body.__class__.__name__}')
             handler(self, packet.body)
         else:
-            logger.warning(f'Unhandled packet: {packet.cmdid}')
+            logger.warning(f'Unhandled packet {packet.cmdid}:{packet.body.__class__.__name__}!')
             return
 
     def loop(self):
@@ -80,15 +110,31 @@ class Client:
         logger.info('[C] connected')
         self.status = ConnectStatus.CONNECTED
 
-        while self.status == ConnectStatus.CONNECTED:
+        self.do_login()
+
+        while self.status.value > 1:
             data = self.sock.recv()
-            self.handle(data)
+
+            if (timedelta := (datetime.datetime.now() - self.pingtime)).seconds > 6:
+                self.pingtime = datetime.datetime.now()
+                pingreq = PingReq(client_time=round(self.pingtime.timestamp()), ue_time=timedelta.total_seconds())
+
+                if self.report_data != b'':
+                    pingreq.sc_data = self.report_data
+                    logger.debug(f"Sending SecurityChannel data!")
+                    self.report_data = b''
+
+                self.send(pingreq)
+
+            if data:
+                self.handle(data)
         
         self.sock.close()
         return
 
     def send(self, msg: Message):
         packet = Packet(body=msg)
+        logger.debug(f'[C] {packet.cmdid}:{packet.body.__class__.__name__}')
         self.send_raw(bytes(packet))
 
     def send_raw(self, data: bytes):

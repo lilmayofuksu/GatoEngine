@@ -2,6 +2,8 @@ from itertools import cycle
 from typing import Tuple
 import os
 import base64
+import hashlib
+import hmac
 
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_v1_5
@@ -17,13 +19,13 @@ signing_keys = {}
 def init_keys(path: str):
     for key_path in os.listdir(path):
         if key_path.endswith("_sign.pem"):
-            with open(key_path, "r") as f:
+            with open(os.path.join(path, key_path), "r") as f:
                 key_id = os.path.basename(key_path)[:1]
-                signing_keys[key_id] = RSA.import_key(f.read())
+                signing_keys[int(key_id)] = RSA.import_key(f.read())
         else:
-            with open(key_path, "r") as f:
+            with open(os.path.join(path, key_path), "r") as f:
                 key_id = os.path.basename(key_path)[:1]
-                private_keys[key_id] = RSA.import_key(f.read())
+                private_keys[int(key_id)] = RSA.import_key(f.read())
 
 def new_key(seed: int) -> bytes:
     mt = mt64()
@@ -91,3 +93,10 @@ def generate_sc_data(server_sc_data: bytes, messages: list[str]):
         return base64.b64decode(client_sc_data)
     else:
         return b''
+
+def generate_hmac_signature(key, data):
+    sig_hash = hmac.new(key.encode('utf8'), data.encode('utf8'), hashlib.sha256).digest()
+    return sig_hash.hex()
+
+def gen_version_hash(version, key):
+    return base64.b64encode(hashlib.sha1(f"{version}{key}mhy2020".encode("ascii")).digest()).decode()

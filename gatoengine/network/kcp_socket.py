@@ -39,7 +39,7 @@ class KcpSocket:
 
             while x := self.kcp.recv()[1]:
                 self.recv_queue.append(x)
-                self.recv_queue_semaphore.release()
+                #self.recv_queue_semaphore.release()
 
     def connect(self, addr: _Address) -> bool:
         self.sock.connect(addr)
@@ -65,8 +65,8 @@ class KcpSocket:
         self.kcp.wndsize(1024, 1024)
         self.kcp.nodelay(1, 10, 2, 1)
 
-        threading.Thread(target=self._kcp_update).start()
-        threading.Thread(target=self._kcp_recv).start()
+        threading.Thread(target=self._kcp_update, daemon=True).start()
+        threading.Thread(target=self._kcp_recv, daemon=True).start()
 
         return True
 
@@ -84,5 +84,8 @@ class KcpSocket:
         self.kcp.send(data)
 
     def recv(self) -> bytes:
-        self.recv_queue_semaphore.acquire()
-        return self.recv_queue.popleft()
+        #self.recv_queue_semaphore.acquire()
+        if len(self.recv_queue) > 0:
+            return self.recv_queue.popleft()
+        else:
+            return None
