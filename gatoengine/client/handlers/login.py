@@ -24,6 +24,8 @@ def get_player_token_req(client: Client, _):
     msg.platform_type = 3 #PC
     msg.account_type = 1
 
+    msg.lang = 1
+
     client.send(msg)
 
 @router(CmdID.GetPlayerTokenRsp)
@@ -41,7 +43,8 @@ def get_player_token_rsp(client: Client, msg: GetPlayerTokenRsp):
             loginreq.from_json(f.read())
         
         loginreq.client_verison_hash = mhycrypt.gen_version_hash(loginreq.client_version, msg.client_version_random_key)
-        loginreq.language_type = 1
+        loginreq.environment_error_code = b'810081834' # WTF is this? and WHY THE CHECKSUM IS asdr75gf498q???????? MHY fix your anticheat ffs
+
         loginreq.account_type = 1
         loginreq.token = client.combo_token
 

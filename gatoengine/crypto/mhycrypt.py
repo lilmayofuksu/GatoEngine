@@ -78,7 +78,7 @@ def encrypt(data: bytes, key_id, is_sign = False) -> bytes:
 
 def solve_security_cmd(cmd_buffer: bytes) -> bytes:
     cmd_str = base64.b64encode(cmd_buffer).decode()
-    response = mhycrypto.solveSecCmd(cmd_str)
+    response = mhycrypto.solve_sec_cmd(cmd_str)
 
     if response != "":
         return base64.b64decode(response)
@@ -87,7 +87,7 @@ def solve_security_cmd(cmd_buffer: bytes) -> bytes:
 
 def generate_sc_data(server_sc_data: bytes, messages: list[str]):
     sc_str = base64.b64encode(server_sc_data).decode()
-    client_sc_data = mhycrypto.genScData(sc_str, messages)
+    client_sc_data = mhycrypto.gen_sc_data(sc_str, messages)
 
     if client_sc_data != "":
         return base64.b64decode(client_sc_data)

@@ -49,7 +49,16 @@ class KcpSocket:
         self.sock.send(bytes(hs1))
         logger.debug('[C] handshake sended')
 
-        data = self.sock.recv(_BUFFER_SIZE)
+        self.sock.settimeout(10.0)
+
+        try:
+            data = self.sock.recv(_BUFFER_SIZE)
+        except socket.timeout:
+            logger.error("Server didn't reply after 10 seconds, aborting.")
+            return False
+
+        self.sock.settimeout(None)
+
         hs2 = Handshake.parse(data)
         logger.debug('[C] handshake received')
 

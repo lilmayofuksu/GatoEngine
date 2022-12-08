@@ -1,14 +1,15 @@
 {
-    "clientDataVersion": 11793813,
-    "clientVersion": "OSRELWin3.2.0_R11611027_S11212885_D11793813",
-    "securityLibraryMd5": "d3a432183ce42b4058beceb415dd0582",
-    "checksum": "c1fed3cda007abe60b0d17c6c7a5442a1a490722857300215a9a4a6258bda35c26",
+    "clientDataVersion": 12100776,
+    "clientVersion": "OSRELWin3.3.0_R11972804_S11938958_D12100776",
+    "securityLibraryMd5": "60a6ac12b5971dd4445108ce59d91c92",
+    "checksum": "asdr75gf498q",
+    "checksumClientVersion": "OSRELWin3.3.0",
 
     "deviceUuid": "ac9d033b04b64a8f8f7ccaf13dce3ceae3442ffde7544708b05da",
     "cps": "mihoyo",
     "deviceName": "GatoComputer-1",
-    "checksumClientVersion": "OSRELWin3.2.0",
     "deviceInfo": "operatingSystem:Windows 10  (10.0.0) 64bit&deviceModel:To be filled by O.E.M. &graphicsDeviceName:NVIDIA GeForce RTX 3060&graphicsDeviceType:Direct3D11&graphicsDeviceVendor:NVIDIA&graphicsDeviceVersion:Direct3D 11.0 [level 11.1]&graphicsMemorySize:12137&processorCount:8&processorFrequency:3800&processorType:AMD Ryzen 5 5800X 8-Core Processor &systemMemorySize:16384",
     "platformType": 3,
+    "languageType": 1,
     "systemVersion": "Windows 10  (10.0.0) 64bit"
-  }
+}
