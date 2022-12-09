@@ -7,8 +7,10 @@ import requests
 from loguru import logger
 
 import base64
-import os, sys
+import os, sys, asyncio
 import importlib
+
+from gatoengine.api.multiserver import get_http_app, set_client
 
 DEFAULT_REGION_LIST_URL = "https://dispatchosglobal.yuanshen.com/query_region_list"
 
@@ -71,6 +73,18 @@ def main():
                     client.add(imported_module.router)
 
             client.run()
+
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+
+            try:
+                httpapp = get_http_app()
+                set_client(client)
+
+                loop.run_until_complete(httpapp.run_task())
+            finally:
+                loop.stop()
+                loop.close()
 
         else:
             print("Invalid server selected.")

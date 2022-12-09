@@ -1,10 +1,12 @@
 from typing import Callable
 from enum import Enum
+
 import traceback
 import datetime
 import threading
 import os
 import json
+import random
 
 from betterproto import Message
 from loguru import logger
@@ -18,6 +20,7 @@ from gatoengine.network.packet import Packet
 from gatoengine.crypto import mhycrypt
 
 Handler = Callable[["Client", Message], None]
+PRINT_PACKETS = False
 
 class HandlerRouter:
     _handlers: dict[CmdID, Handler]
@@ -36,7 +39,6 @@ class HandlerRouter:
             self._handlers[cmdid] = handler
             return handler
         return wrapper
-
 class ConnectStatus(Enum):
     NOT_CONNECTED = 1
     CONNECTED = 2
@@ -45,6 +47,7 @@ class ConnectStatus(Enum):
 class Client:
     def __init__(self, dst_server: _Address, key_id: int, initial_key: bytes):
         self.router = HandlerRouter()
+
         self.dst_server = dst_server
 
         self.sock = KcpSocket()
@@ -77,7 +80,9 @@ class Client:
         self.router.add(router)
     
     def run(self):
-        self.loop()
+        #self.loop()
+        self.thread = threading.Thread(target=self.loop, daemon=True)
+        self.thread.start()
 
     def do_login(self):
         if handler := self.router.get(CmdID.GetPlayerTokenReq):
@@ -87,13 +92,15 @@ class Client:
 
     def handle(self, data: bytes):
         data = mhycrypt.xor(data, self.key)
-        #logger.debug(f'[S] {data.hex()}')
+
         try:
             packet = Packet().parse(data)
         except Exception:
             logger.error(f'Exception occured while parsing packet: {data.hex()}')
             logger.error(traceback.format_exc())
             return
+        if PRINT_PACKETS:
+            logger.debug(f'[S] {packet.head.to_dict()}, {packet.body.to_dict()}')
 
         if handler := self.router.get(packet.cmdid):
             logger.debug(f'[S] {packet.cmdid}:{packet.body.__class__.__name__}')
@@ -132,9 +139,21 @@ class Client:
         self.sock.close()
         return
 
+    def send_as_dict(self, msg: dict, cmdid: int):
+        packet = Packet()
+        packet.cmdid = CmdID(cmdid)
+        packet.parse_from_dict(msg)
+        self.send_packet(packet)
+
     def send(self, msg: Message):
         packet = Packet(body=msg)
+        self.send_packet(packet)
+
+    def send_packet(self, packet: Packet):
         logger.debug(f'[C] {packet.cmdid}:{packet.body.__class__.__name__}')
+        if PRINT_PACKETS:
+            logger.debug(f'[C] {packet.head.to_dict()}, {packet.body.to_dict()}')
+        packet.head.sent_ms = round(datetime.datetime.now().timestamp())
         self.send_raw(bytes(packet))
 
     def send_raw(self, data: bytes):

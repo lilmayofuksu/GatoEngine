@@ -12,11 +12,24 @@ class Packet:
         self.head = head
         if not head:
             self.head = PacketHead()
+            self.head.enet_is_reliable = True
 
         self.body = body
         if not body == None:
             self.cmdid = CmdID[body.__class__.__name__]
             self.head.packet_id = self.cmdid
+
+    def parse_from_proto(self, data: bytes):
+        proto_class = getattr(proto, betterproto.casing.pascal_case(self.cmdid.name), None)
+        self.body = proto_class().parse(data)
+
+    def parse_from_json(self, data: str):
+        proto_class: betterproto.Message = getattr(proto, betterproto.casing.pascal_case(self.cmdid.name), None)
+        self.body = proto_class().from_json(data)
+
+    def parse_from_dict(self, data: dict):
+        proto_class: betterproto.Message = getattr(proto, betterproto.casing.pascal_case(self.cmdid.name), None)
+        self.body = proto_class().from_dict(data)
 
     def parse(self, data: bytes) -> Packet:
         buf = BinaryReader(data)

@@ -123,11 +123,280 @@ class AbilityMixinBreakoutSyncType(betterproto.Enum):
     SYNC_TYPE_ACTION = 6
 
 
+class AccountType(betterproto.Enum):
+    ACCOUNT_TYPE_MIHOYO_GUEST = 0
+    ACCOUNT_TYPE_MIHOYO = 1
+    ACCOUNT_TYPE_XIAOMI = 11
+    ACCOUNT_TYPE_COOLPAD = 12
+    ACCOUNT_TYPE_YYB = 13
+    ACCOUNT_TYPE_BILI = 14
+    ACCOUNT_TYPE_HUAWEI = 15
+    ACCOUNT_TYPE_MEIZU = 16
+    ACCOUNT_TYPE_360 = 17
+    ACCOUNT_TYPE_OPPO = 18
+    ACCOUNT_TYPE_VIVO = 19
+    ACCOUNT_TYPE_UC = 20
+    ACCOUNT_TYPE_WANDOJIA = 21
+    ACCOUNT_TYPE_LENOVO = 22
+    ACCOUNT_TYPE_JINLI = 23
+    ACCOUNT_TYPE_BAIDU = 25
+    ACCOUNT_TYPE_DANGLE = 26
+
+
 class AchievementStatus(betterproto.Enum):
     STATUS_INVALID = 0
     STATUS_UNFINISHED = 1
     STATUS_FINISHED = 2
     STATUS_REWARD_TAKEN = 3
+
+
+class ActionReasonType(betterproto.Enum):
+    ACTION_REASON_TYPE_NONE = 0
+    ACTION_REASON_TYPE_QUEST_ITEM = 1
+    ACTION_REASON_TYPE_QUEST_REWARD = 2
+    ACTION_REASON_TYPE_TRIFLE = 3
+    ACTION_REASON_TYPE_SHOP = 4
+    ACTION_REASON_TYPE_PLAYER_UPGRADE_REWARD = 5
+    ACTION_REASON_TYPE_ADD_AVATAR = 6
+    ACTION_REASON_TYPE_GADGET_ENV_ANIMAL = 7
+    ACTION_REASON_TYPE_MONSTER_ENV_ANIMAL = 8
+    ACTION_REASON_TYPE_COMPOUND = 9
+    ACTION_REASON_TYPE_COOK = 10
+    ACTION_REASON_TYPE_GATHER = 11
+    ACTION_REASON_TYPE_MAIL_ATTACHMENT = 12
+    ACTION_REASON_TYPE_CITY_LEVELUP_RETURN = 15
+    ACTION_REASON_TYPE_CITY_LEVELUP_REWARD = 17
+    ACTION_REASON_TYPE_AREA_EXPLORE_REWARD = 18
+    ACTION_REASON_TYPE_UNLOCK_POINT_REWARD = 19
+    ACTION_REASON_TYPE_DUNGEON_FIRST_PASS = 20
+    ACTION_REASON_TYPE_DUNGEON_PASS = 21
+    ACTION_REASON_TYPE_CHANGE_ELEM_TYPE = 23
+    ACTION_REASON_TYPE_FETTER_OPEN = 25
+    ACTION_REASON_TYPE_DAILY_TASK_SCORE = 26
+    ACTION_REASON_TYPE_DAILY_TASK_HOST = 27
+    ACTION_REASON_TYPE_RAND_TASK_HOST = 28
+    ACTION_REASON_TYPE_EXPEDITION = 29
+    ACTION_REASON_TYPE_GACHA = 30
+    ACTION_REASON_TYPE_COMBINE = 31
+    ACTION_REASON_TYPE_RAND_TASK_GUEST = 32
+    ACTION_REASON_TYPE_DAILY_TASK_GUEST = 33
+    ACTION_REASON_TYPE_FORGE_OUTPUT = 34
+    ACTION_REASON_TYPE_FORGE_RETURN = 35
+    ACTION_REASON_TYPE_INIT_AVATAR = 36
+    ACTION_REASON_TYPE_MONSTER_DIE = 37
+    ACTION_REASON_TYPE_GM = 38
+    ACTION_REASON_TYPE_OPEN_CHEST = 39
+    ACTION_REASON_TYPE_GADGET_DIE = 40
+    ACTION_REASON_TYPE_MONSTER_CHANGE_HP = 41
+    ACTION_REASON_TYPE_SUBFIELD_DROP = 42
+    ACTION_REASON_TYPE_PUSH_TIPS_REWARD = 43
+    ACTION_REASON_TYPE_ACTIVITY_MONSTER_DROP = 44
+    ACTION_REASON_TYPE_ACTIVITY_GATHER = 45
+    ACTION_REASON_TYPE_ACTIVITY_SUBFIELD_DROP = 46
+    ACTION_REASON_TYPE_TOWER_SCHEDULE_REWARD = 47
+    ACTION_REASON_TYPE_TOWER_FLOOR_STAR_REWARD = 48
+    ACTION_REASON_TYPE_TOWER_FIRST_PASS_REWARD = 49
+    ACTION_REASON_TYPE_TOWER_DAILY_REWARD = 50
+    ACTION_REASON_TYPE_HIT_CLIENT_TRIVIAL_ENTITY = 51
+    ACTION_REASON_TYPE_OPEN_WORLD_BOSS_CHEST = 52
+    ACTION_REASON_TYPE_MATERIAL_DELETE_RETURN = 53
+    ACTION_REASON_TYPE_SIGN_IN_REWARD = 54
+    ACTION_REASON_TYPE_OPEN_BLOSSOM_CHEST = 55
+    ACTION_REASON_TYPE_RECHARGE = 56
+    ACTION_REASON_TYPE_BONUS_ACTIVITY_REWARD = 57
+    ACTION_REASON_TYPE_TOWER_COMMEMORATIVE_REWARD = 58
+    ACTION_REASON_TYPE_TOWER_SKIP_FLOOR_REWARD = 59
+    ACTION_REASON_TYPE_RECHARGE_BONUS = 60
+    ACTION_REASON_TYPE_RECHARGE_CARD = 61
+    ACTION_REASON_TYPE_RECHARGE_CARD_DAILY = 62
+    ACTION_REASON_TYPE_RECHARGE_CARD_REPLACE = 63
+    ACTION_REASON_TYPE_RECHARGE_CARD_REPLACE_FREE = 64
+    ACTION_REASON_TYPE_RECHARGE_PLAY_REPLACE = 65
+    ACTION_REASON_TYPE_MP_PLAY_TAKE_REWARD = 66
+    ACTION_REASON_TYPE_ACTIVITY_WATCHER = 67
+    ACTION_REASON_TYPE_SALESMAN_DELIVER_ITEM = 68
+    ACTION_REASON_TYPE_SALESMAN_REWARD = 69
+    ACTION_REASON_TYPE_REBATE = 70
+    ACTION_REASON_TYPE_MCOIN_EXCHANGE_HCOIN = 71
+    ACTION_REASON_TYPE_DAILY_TASK_EXCHANGE_LEGENDARY_KEY = 72
+    ACTION_REASON_TYPE_UNLOCK_PERSON_LINE = 73
+    ACTION_REASON_TYPE_FETTER_LEVEL_REWARD = 74
+    ACTION_REASON_TYPE_BUY_RESIN = 75
+    ACTION_REASON_TYPE_RECHARGE_PACKAGE = 76
+    ACTION_REASON_TYPE_DELIVERY_DAILY_REWARD = 77
+    ACTION_REASON_TYPE_CITY_REPUTATION_LEVEL = 78
+    ACTION_REASON_TYPE_CITY_REPUTATION_QUEST = 79
+    ACTION_REASON_TYPE_CITY_REPUTATION_REQUEST = 80
+    ACTION_REASON_TYPE_CITY_REPUTATION_EXPLORE = 81
+    ACTION_REASON_TYPE_OFFERGING_LEVEL = 82
+    ACTION_REASON_TYPE_ROUTINE_HOST = 83
+    ACTION_REASON_TYPE_ROUTINE_GUEST = 84
+    ACTION_REASON_TYPE_TREASURE_MAP_SPOT_TOKEN = 89
+    ACTION_REASON_TYPE_TREASURE_MAP_BONUS_LEVEL_REWARD = 90
+    ACTION_REASON_TYPE_TREASURE_MAP_MP_REWARD = 91
+    ACTION_REASON_TYPE_CONVERT = 92
+    ACTION_REASON_TYPE_OVERFLOW_TRANSFORM = 93
+    ACTION_REASON_TYPE_ACTIVITY_AVATAR_SELECTION_REWARD = 96
+    ACTION_REASON_TYPE_ACTIVITY_WATCHER_BATCH = 97
+    ACTION_REASON_TYPE_HIT_TREE_DROP = 98
+    ACTION_REASON_TYPE_GET_HOME_LEVELUP_REWARD = 99
+    ACTION_REASON_TYPE_HOME_DEFAULT_FURNITURE = 100
+    ACTION_REASON_TYPE_ACTIVITY_COND = 101
+    ACTION_REASON_TYPE_BATTLE_PASS_NOTIFY = 102
+    ACTION_REASON_TYPE_RELIQUARY_DECOMPOSE = 103
+    ACTION_REASON_TYPE_RECHARGE_GOOGLE_GIFT_GARD = 104
+    ACTION_REASON_TYPE_RECHARGE_CONCERT_PRODUCT = 105
+    ACTION_REASON_TYPE_RECHARGE_CONCERT_PRODUCT_REPLACE = 106
+    ACTION_REASON_TYPE_SEND_CONCERT_PRODUCT_BY_MUIP = 107
+    ACTION_REASON_TYPE_RECHARGE_APPLE_GIFT_GARD = 108
+    ACTION_REASON_TYPE_RECHARGE_PSN_COMPENSATION_PRODUCT = 109
+    ACTION_REASON_TYPE_COMPOUND_BOOST = 110
+    ACTION_REASON_TYPE_WOOD_EXCHANGE = 111
+    ACTION_REASON_TYPE_AVATAR_RENAME_AUDIT_FAILED = 112
+    ACTION_REASON_TYPE_AVATAR_RENAME_RESET = 113
+    ACTION_REASON_TYPE_PLAYER_USE_ITEM = 1001
+    ACTION_REASON_TYPE_DROP_ITEM = 1002
+    ACTION_REASON_TYPE_WEAPON_UPGRADE = 1011
+    ACTION_REASON_TYPE_WEAPON_PROMOTE = 1012
+    ACTION_REASON_TYPE_WEAPON_AWAKEN = 1013
+    ACTION_REASON_TYPE_RELIC_UPGRADE = 1014
+    ACTION_REASON_TYPE_ABILITY = 1015
+    ACTION_REASON_TYPE_DUNGEON_STATUE_DROP = 1016
+    ACTION_REASON_TYPE_OFFLINE_MSG = 1017
+    ACTION_REASON_TYPE_AVATAR_UPGRADE = 1018
+    ACTION_REASON_TYPE_AVATAR_PROMOTE = 1019
+    ACTION_REASON_TYPE_QUEST_ACTION = 1021
+    ACTION_REASON_TYPE_CITY_LEVELUP = 1022
+    ACTION_REASON_TYPE_UPGRADE_SKILL = 1024
+    ACTION_REASON_TYPE_UNLOCK_TALENT = 1025
+    ACTION_REASON_TYPE_UPGRADE_PROUD_SKILL = 1026
+    ACTION_REASON_TYPE_PLAYER_LEVEL_LIMIT_UP = 1027
+    ACTION_REASON_TYPE_DUNGEON_DAILY = 1028
+    ACTION_REASON_TYPE_ITEM_GIVING = 1030
+    ACTION_REASON_TYPE_FORGE_COST = 1031
+    ACTION_REASON_TYPE_INVESTIGATION_REWARD = 1032
+    ACTION_REASON_TYPE_INVESTIGATION_TARGET_REWARD = 1033
+    ACTION_REASON_TYPE_GADGET_INTERACT = 1034
+    ACTION_REASON_TYPE_SEA_LAMP_CI_MATERIAL = 1036
+    ACTION_REASON_TYPE_SEA_LAMP_CONTRIBUTION_REWARD = 1037
+    ACTION_REASON_TYPE_SEA_LAMP_PHASE_REWARD = 1038
+    ACTION_REASON_TYPE_SEA_LAMP_FLY_LAMP = 1039
+    ACTION_REASON_TYPE_AUTO_RECOVER = 1040
+    ACTION_REASON_TYPE_ACTIVITY_EXPIRE_ITEM = 1041
+    ACTION_REASON_TYPE_SUB_COIN_NEGATIVE = 1042
+    ACTION_REASON_TYPE_BARGAIN_DEDUCT = 1043
+    ACTION_REASON_TYPE_BATTLE_PASS_PAID_REWARD = 1044
+    ACTION_REASON_TYPE_BATTLE_PASS_LEVEL_REWARD = 1045
+    ACTION_REASON_TYPE_TRIAL_AVATAR_ACTIVITY_FIRST_PASS_REWARD = 1046
+    ACTION_REASON_TYPE_BUY_BATTLE_PASS_LEVEL = 1047
+    ACTION_REASON_TYPE_GRANT_BIRTHDAY_BENEFIT = 1048
+    ACTION_REASON_TYPE_ACHIEVEMENT_REWARD = 1049
+    ACTION_REASON_TYPE_ACHIEVEMENT_GOAL_REWARD = 1050
+    ACTION_REASON_TYPE_FIRST_SHARE_TO_SOCIAL_NETWORK = 1051
+    ACTION_REASON_TYPE_DESTROY_MATERIAL = 1052
+    ACTION_REASON_TYPE_CODEX_LEVELUP_REWARD = 1053
+    ACTION_REASON_TYPE_HUNTING_OFFER_REWARD = 1054
+    ACTION_REASON_TYPE_USE_WIDGET_ANCHOR_POINT = 1055
+    ACTION_REASON_TYPE_USE_WIDGET_BONFIRE = 1056
+    ACTION_REASON_TYPE_UNGRADE_WEAPON_RETURN_MATERIAL = 1057
+    ACTION_REASON_TYPE_USE_WIDGET_ONEOFF_GATHER_POINT_DETECTOR = 1058
+    ACTION_REASON_TYPE_USE_WIDGET_CLIENT_COLLECTOR = 1059
+    ACTION_REASON_TYPE_USE_WIDGET_CLIENT_DETECTOR = 1060
+    ACTION_REASON_TYPE_TAKE_GENERAL_REWARD = 1061
+    ACTION_REASON_TYPE_ASTER_TAKE_SPECIAL_REWARD = 1062
+    ACTION_REASON_TYPE_REMOVE_CODEX_BOOK = 1063
+    ACTION_REASON_TYPE_OFFERING_ITEM = 1064
+    ACTION_REASON_TYPE_USE_WIDGET_GADGET_BUILDER = 1065
+    ACTION_REASON_TYPE_EFFIGY_FIRST_PASS_REWARD = 1066
+    ACTION_REASON_TYPE_EFFIGY_REWARD = 1067
+    ACTION_REASON_TYPE_REUNION_FIRST_GIFT_REWARD = 1068
+    ACTION_REASON_TYPE_REUNION_SIGN_IN_REWARD = 1069
+    ACTION_REASON_TYPE_REUNION_WATCHER_REWARD = 1070
+    ACTION_REASON_TYPE_SALESMAN_MP_REWARD = 1071
+    ACTION_REASON_TYPE_AVATAR_PROMOTE_REWARD = 1072
+    ACTION_REASON_TYPE_BLESSING_REDEEM_REWARD = 1073
+    ACTION_REASON_TYPE_MIRACLE_RING_REWARD = 1074
+    ACTION_REASON_TYPE_EXPEDITION_REWARD = 1075
+    ACTION_REASON_TYPE_TREASURE_MAP_REMOVE_DETECTOR = 1076
+    ACTION_REASON_TYPE_MECHANICUS_DUNGEON_TICKET = 1077
+    ACTION_REASON_TYPE_MECHANICUS_LEVELUP_GEAR = 1078
+    ACTION_REASON_TYPE_MECHANICUS_BATTLE_SETTLE = 1079
+    ACTION_REASON_TYPE_REGION_SEARCH_REWARD = 1080
+    ACTION_REASON_TYPE_UNLOCK_COOP_CHAPTER = 1081
+    ACTION_REASON_TYPE_TAKE_COOP_REWARD = 1082
+    ACTION_REASON_TYPE_FLEUR_FAIR_DUNGEON_REWARD = 1083
+    ACTION_REASON_TYPE_ACTIVITY_SCORE = 1084
+    ACTION_REASON_TYPE_CHANNELLER_SLAB_ONEOFF_DUNGEON_REWARD = 1085
+    ACTION_REASON_TYPE_FURNITURE_MAKE_START = 1086
+    ACTION_REASON_TYPE_FURNITURE_MAKE_TAKE = 1087
+    ACTION_REASON_TYPE_FURNITURE_MAKE_CANCEL = 1088
+    ACTION_REASON_TYPE_FURNITURE_MAKE_FAST_FINISH = 1089
+    ACTION_REASON_TYPE_CHANNELLER_SLAB_LOOP_DUNGEON_FIRST_PASS_REWARD = 1090
+    ACTION_REASON_TYPE_CHANNELLER_SLAB_LOOP_DUNGEON_SCORE_REWARD = 1091
+    ACTION_REASON_TYPE_HOME_LIMITED_SHOP_BUY = 1092
+    ACTION_REASON_TYPE_HOME_COIN_COLLECT = 1093
+    ACTION_REASON_TYPE_SUMMER_TIME_SENTRY_TOWER_REWARD = 1094
+    ACTION_REASON_TYPE_SUMMER_TIME_SPRINT_BOAT_REWARD = 1095
+    ACTION_REASON_TYPE_SUMMER_TIME_BOSS_REWARD = 1096
+    ACTION_REASON_TYPE_SUMMER_TIME_BOMB_REWARD = 1097
+    ACTION_REASON_TYPE_HOME_FETTER_COLLECT = 1098
+    ACTION_REASON_TYPE_ECHO_SHELL_REWARD = 1099
+    ACTION_REASON_TYPE_HOME_EVENT_REWARD = 1100
+    ACTION_REASON_TYPE_BLITZ_RUSH_DUNGEON_REWARD = 1101
+    ACTION_REASON_TYPE_FURNITURE_MAKE_RETURN = 1102
+    ACTION_REASON_TYPE_HOME_PLANT_BOX_GATHER = 1103
+    ACTION_REASON_TYPE_HOME_PLANT_SEED = 1104
+    ACTION_REASON_TYPE_HOME_PLANT_GATHER = 1105
+    ACTION_REASON_TYPE_CHESS_DUNGEON_REWARD = 1106
+    ACTION_REASON_TYPE_GROUP_LINK_BUNDLE_FINISH = 1107
+    ACTION_REASON_TYPE_LUNA_RITE_SACRIFICE = 1108
+    ACTION_REASON_TYPE_LUNA_RITE_TAKE_SACRIFICE_REWARD = 1109
+    ACTION_REASON_TYPE_FISH_BITE = 1110
+    ACTION_REASON_TYPE_FISH_SUCC = 1111
+    ACTION_REASON_TYPE_PLANT_FLOWER_REWARD = 1112
+    ACTION_REASON_TYPE_PLANT_FLOWER_DELIVER_ITEM = 1113
+    ACTION_REASON_TYPE_PLANT_FLOWER_GIVE_FLOWER = 1114
+    ACTION_REASON_TYPE_PLANT_FLOWER_RECV_FLOWER = 1115
+    ACTION_REASON_TYPE_ROGUE_CHALLENGE_SETTLE = 1116
+    ACTION_REASON_TYPE_ROGUE_TAKE_FIRST_PASS_REWARD = 1117
+    ACTION_REASON_TYPE_ROGUE_UPGRADE_SHIKIGAMI = 1118
+    ACTION_REASON_TYPE_ROGUE_REFRESH_CARD = 1119
+    ACTION_REASON_TYPE_USE_WIDGET_CAPTURE_ANIMAL = 1120
+    ACTION_REASON_TYPE_CAPTURE_ANIMAL_SUCC = 1121
+    ACTION_REASON_TYPE_SNOW_DRIFTS = 1122
+    ACTION_REASON_TYPE_WINTER_CAMP_GIVE_ITEM = 1123
+    ACTION_REASON_TYPE_WINTER_CAMP_RECV_ITEM = 1124
+    ACTION_REASON_TYPE_WINTER_CAMP_EXPLORE_REWARD = 1125
+    ACTION_REASON_TYPE_WINTER_CAMP_BATTLE_REWARD = 1126
+    ACTION_REASON_TYPE_LANTERN_RITE_SKIN_REWARD = 1127
+    ACTION_REASON_TYPE_LANTERN_RITE_DUNGEON_REWARD = 1128
+    ACTION_REASON_TYPE_MICHIAE_MATSURI_DARK_CHALLENGE_REWARD = 1129
+    ACTION_REASON_TYPE_MICHIAE_MATSURI_UNLOCK_CRYSTAL_SKILL = 1130
+    ACTION_REASON_TYPE_LANTERN_RITE_GROUP_REWARD = 1131
+    ACTION_REASON_TYPE_COSTUME_DEFAULT_UNLOCK = 1132
+    ACTION_REASON_TYPE_SPICE_ACTIVITY_MAKE_SPICE = 1133
+    ACTION_REASON_TYPE_SPICE_ACTIVITY_PROCESS_FOOD = 1134
+    ACTION_REASON_TYPE_SPICE_ADD_AVATAR_FETTER = 1135
+    ACTION_REASON_TYPE_GACHA_ACTIVITY_ROBOT_REWARD = 1136
+    ACTION_REASON_TYPE_GIVING_TAKE_BACK = 1137
+    ACTION_REASON_TYPE_SUMMER_TIME_V2_DUNGEON_REWARD = 1138
+    ACTION_REASON_TYPE_GRAVEN_INNOCENCE_CAMP_REWARD = 1139
+    ACTION_REASON_TYPE_TREASURE_SEELIE_CHEST_REWARD = 1140
+    ACTION_REASON_TYPE_GCG_TAVERN_CHALLENGE_UNLOCK_CHARACTER = 1141
+    ACTION_REASON_TYPE_GCG_LEVEL_REWARD = 1143
+    ACTION_REASON_TYPE_GCG_CHALLENGE_FINISH = 1144
+    ACTION_REASON_TYPE_VINTAGE_MARKET_DEAL = 1145
+    ACTION_REASON_TYPE_VINTAGE_MARKET_BARGAIN = 1146
+    ACTION_REASON_TYPE_VINTAGE_MARKET_STORE = 1147
+    ACTION_REASON_TYPE_VINTAGE_PRESENT = 1148
+    ACTION_REASON_TYPE_VINTAGE_OPEN_STORE = 1149
+    ACTION_REASON_TYPE_VINTAGE_STORE_UNLOCK_SLOT = 1150
+    ACTION_REASON_TYPE_VINTAGE_STORE_NPC_EVENT = 1151
+    ACTION_REASON_TYPE_ROCK_BOARD_EXPLORE_REWARD = 1152
+    ACTION_REASON_TYPE_VINTAGE_STORE_DIVIDEND = 1153
+    ACTION_REASON_TYPE_AVATAR_RENAME = 1154
+    ACTION_REASON_TYPE_GCG_FINISH_LEVEL_QUEST = 1155
+    ACTION_REASON_TYPE_GCG_PROFICIENCY_REWARD = 1156
 
 
 class ActivityPushTipsState(betterproto.Enum):
@@ -557,6 +826,25 @@ class ChangeHpReason(betterproto.Enum):
     CHANGE_HP_REASON_ADD_ROGUELIKE_SPRING = 109
 
 
+class ChannelIdType(betterproto.Enum):
+    CHANNEL_ID_TYPE_NONE = 0
+    CHANNEL_ID_TYPE_MIHOYO = 1
+    CHANNEL_ID_TYPE_XIAOMI = 11
+    CHANNEL_ID_TYPE_COOLPAD = 12
+    CHANNEL_ID_TYPE_YYB = 13
+    CHANNEL_ID_TYPE_BILI = 14
+    CHANNEL_ID_TYPE_HUAWEI = 15
+    CHANNEL_ID_TYPE_MEIZU = 16
+    CHANNEL_ID_TYPE_360 = 17
+    CHANNEL_ID_TYPE_OPPO = 18
+    CHANNEL_ID_TYPE_VIVO = 19
+    CHANNEL_ID_TYPE_UC = 20
+    CHANNEL_ID_TYPE_LENOVO = 22
+    CHANNEL_ID_TYPE_JINLI = 23
+    CHANNEL_ID_TYPE_BAIDU = 25
+    CHANNEL_ID_TYPE_DANGLE = 26
+
+
 class ChapterState(betterproto.Enum):
     CHAPTER_STATE_INVALID = 0
     CHAPTER_STATE_UNABLE_TO_BEGIN = 1
@@ -595,6 +883,11 @@ class TransmitReason(betterproto.Enum):
 class EventTriggerType(betterproto.Enum):
     EVENT_TRIGGER_TYPE_NONE = 0
     EVENT_TRIGGER_TYPE_ENTER_FORCE = 1
+
+
+class ClientType(betterproto.Enum):
+    CLIENT_TYPE_PRODUCT = 0
+    CLIENT_TYPE_DEV = 1
 
 
 class CodexType(betterproto.Enum):
@@ -707,8 +1000,8 @@ class DealAddFriendResultType(betterproto.Enum):
 
 
 class DebugNotifyRetcode(betterproto.Enum):
-    RETCODE_SUCC = 0
-    RETCODE_FAIL = 1
+    SUCC = 0
+    FAIL = 1
 
 
 class DraftInviteFailReason(betterproto.Enum):
@@ -773,6 +1066,90 @@ class WindFieldDungeonFailReason(betterproto.Enum):
     WIND_FIELD_DUNGEON_FAIL_REASON_LUA_INTERRUPT = 4
 
 
+class ENetReason(betterproto.Enum):
+    E_NET_REASON_ENET_TIMEOUT = 0
+    E_NET_REASON_ENET_CLIENT_CLOSE = 1
+    E_NET_REASON_ENET_CLIENT_REBIND_FAIL = 2
+    E_NET_REASON_ENET_CLIENT_SHUTDOWN = 3
+    E_NET_REASON_ENET_SERVER_RELOGIN = 4
+    E_NET_REASON_ENET_SERVER_KICK = 5
+    E_NET_REASON_ENET_SERVER_SHUTDOWN = 6
+    E_NET_REASON_ENET_NOT_FOUND_SESSION = 7
+    E_NET_REASON_ENET_LOGIN_UNFINISHED = 8
+    E_NET_REASON_ENET_PACKET_FREQ_TOO_HIGH = 9
+    E_NET_REASON_ENET_PING_TIMEOUT = 10
+    E_NET_REASON_ENET_TRANFER_FAILED = 11
+    E_NET_REASON_ENET_SERVER_KILL_CLIENT = 12
+    E_NET_REASON_ENET_CHECK_MOVE_SPEED = 13
+    E_NET_REASON_ENET_ACCOUNT_PASSWORD_CHANGE = 14
+    E_NET_REASON_ENET_SECURITY_KICK = 15
+    E_NET_REASON_ENET_LUA_SHELL_TIMEOUT = 16
+    E_NET_REASON_ENET_SDKFAIL_KICK = 17
+    E_NET_REASON_ENET_PACKET_COST_TIME = 18
+    E_NET_REASON_ENET_PACKET_UNION_FREQ = 19
+    E_NET_REASON_ENET_WAIT_SND_MAX = 20
+    E_NET_REASON_ENET_CLIENT_CONNECT_KEY = 1234567890
+    E_NET_REASON_ENET_CLIENT_EDITOR_CONNECT_KEY = 987654321
+
+
+class EnterReason(betterproto.Enum):
+    ENTER_REASON_NONE = 0
+    ENTER_REASON_LOGIN = 1
+    ENTER_REASON_DUNGEON_REPLAY = 11
+    ENTER_REASON_DUNGEON_REVIVE_ON_WAYPOINT = 12
+    ENTER_REASON_DUNGEON_ENTER = 13
+    ENTER_REASON_DUNGEON_QUIT = 14
+    ENTER_REASON_GM = 21
+    ENTER_REASON_QUEST_ROLLBACK = 31
+    ENTER_REASON_REVIVAL = 32
+    ENTER_REASON_PERSONAL_SCENE = 41
+    ENTER_REASON_TRANS_POINT = 42
+    ENTER_REASON_CLIENT_TRANSMIT = 43
+    ENTER_REASON_FORCE_DRAG_BACK = 44
+    ENTER_REASON_TEAM_KICK = 51
+    ENTER_REASON_TEAM_JOIN = 52
+    ENTER_REASON_TEAM_BACK = 53
+    ENTER_REASON_MUIP = 54
+    ENTER_REASON_DUNGEON_INVITE_ACCEPT = 55
+    ENTER_REASON_LUA = 56
+    ENTER_REASON_ACTIVITY_LOAD_TERRAIN = 57
+    ENTER_REASON_HOST_FROM_SINGLE_TO_MP = 58
+    ENTER_REASON_MP_PLAY = 59
+    ENTER_REASON_ANCHOR_POINT = 60
+    ENTER_REASON_LUA_SKIP_UI = 61
+    ENTER_REASON_RELOAD_TERRAIN = 62
+    ENTER_REASON_DRAFT_TRANSFER = 63
+    ENTER_REASON_ENTER_HOME = 64
+    ENTER_REASON_EXIT_HOME = 65
+    ENTER_REASON_CHANGE_HOME_MODULE = 66
+    ENTER_REASON_GALLERY = 67
+    ENTER_REASON_HOME_SCENE_JUMP = 68
+    ENTER_REASON_HIDE_AND_SEEK = 69
+    ENTER_REASON_SUMMER_TIME_MIST_ZONE = 70
+    ENTER_REASON_FORCE_QUIT_SCENE = 71
+    ENTER_REASON_HERO_COURSE = 72
+    ENTER_REASON_TRANS_CLIMATE = 73
+    ENTER_REASON_SUMMER_TIME_BOAT_RESTART = 74
+    ENTER_REASON_TSURUMI_MIST_CLIMATE = 75
+    ENTER_REASON_TSURUMI_REGIONAL_MIST_CLIMATE = 76
+    ENTER_REASON_WINTER_CAMP_RESTART = 77
+    ENTER_REASON_TALK_EXEC_TRANSFER = 78
+    ENTER_REASON_SEALAMP_BOAT_RESTART = 79
+    ENTER_REASON_SEALAMP_BOAT_BACK = 80
+    ENTER_REASON_CHALLENGE_INTERRUPT_BACK = 81
+    ENTER_REASON_IRODORI_MASTER_TRANSFER = 82
+    ENTER_REASON_GALLERY_BACK = 83
+    ENTER_REASON_SUMMER_TIME_V2_BOAT_RESTART = 84
+    ENTER_REASON_ISLAND_PARTY_GALLERY_START_FAILED = 85
+    ENTER_REASON_GRAVEN_INNOCENCE_RACE_RESTART = 86
+    ENTER_REASON_VINTAGE_HUNTING_TRANSFER = 87
+    ENTER_REASON_FUNGUS_FIGHTER_TRANSFER = 88
+    ENTER_REASON_BRICK_BREAKER = 89
+    ENTER_REASON_BRICK_BREAKER_SINGLE = 90
+    ENTER_REASON_TRANSFER_GUARD_STOP = 91
+    ENTER_REASON_COIN_COLLECT_SINGLE = 92
+
+
 class RogueDiaryAvatarDisableStatus(betterproto.Enum):
     ROGUE_DIARY_AVATAR_DISABLE_STATUS_NONE = 0
     ROGUE_DIARY_AVATAR_DISABLE_STATUS_DEATH = 1
@@ -807,6 +1184,14 @@ class EntityJumpNotifyType(betterproto.Enum):
     TYPE_NULL = 0
     TYPE_ACTIVE = 1
     TYPE_PASSIVE = 2
+
+
+class FetterState(betterproto.Enum):
+    FETTER_STATE_NONE = 0
+    FETTER_STATE_NOT_OPEN = 1
+    FETTER_STATE_OPEN = 2
+    FETTER_STATE_FINISH = 3
+    FETTER_STATE_CONCEAL = 4
 
 
 class FireworksLaunchParamType(betterproto.Enum):
@@ -896,6 +1281,11 @@ class InteractType(betterproto.Enum):
     INTERACT_TYPE_QUEST_GADGET = 14
     INTERACT_TYPE_UI_INTERACT = 15
     INTERACT_TYPE_DESHRET_OBELISK = 16
+
+
+class GadgetPlayType(betterproto.Enum):
+    GADGET_PLAY_TYPE_NONE = 0
+    GADGET_PLAY_TYPE_CRUSIBLE = 1
 
 
 class GalleryStageType(betterproto.Enum):
@@ -1202,6 +1592,11 @@ class LockedPersonallineDataLockReason(betterproto.Enum):
     LOCK_REASON_QUEST = 1
 
 
+class LoginRewardConfigType(betterproto.Enum):
+    LOGIN_REWARD_CONFIG_TYPE_IMMEDIDATE = 0
+    LOGIN_REWARD_CONFIG_TYPE_FIRST = 1
+
+
 class LuaSetOptionNotifyLuaOptionType(betterproto.Enum):
     LUA_OPTION_TYPE_NONE = 0
     LUA_OPTION_TYPE_PLAYER_INPUT = 1
@@ -1246,6 +1641,21 @@ class MatchType(betterproto.Enum):
 class MaterialDeleteReturnType(betterproto.Enum):
     MATERIAL_DELETE_RETURN_TYPE_BAG = 0
     MATERIAL_DELETE_RETURN_TYPE_SEED = 1
+
+
+class MathExpressionType(betterproto.Enum):
+    MATH_EXPRESSION_TYPE_EXPR_NONE = 0
+    MATH_EXPRESSION_TYPE_EXPR_LEVEL = 1
+    MATH_EXPRESSION_TYPE_EXPR_REGISTER_TIME = 2
+    MATH_EXPRESSION_TYPE_EXPR_LAST_LOGIN_TIME = 3
+    MATH_EXPRESSION_TYPE_EXPR_TOTAL_LOGIN_DAYS = 4
+    MATH_EXPRESSION_TYPE_EXPR_PLATFORM = 5
+
+
+class NpcTalkState(betterproto.Enum):
+    NPC_TALK_STATE_NONE = 0
+    NPC_TALK_STATE_AUTO = 1
+    NPC_TALK_STATE_MANUAL = 2
 
 
 class ObstacleInfoShapeType(betterproto.Enum):
@@ -1388,6 +1798,38 @@ class RegionSearchChangeRegionNotifyRegionEvent(betterproto.Enum):
     REGION_EVENT_NONE = 0
     REGION_EVENT_ENTER = 1
     REGION_EVENT_LEAVE = 2
+
+
+class RegionType(betterproto.Enum):
+    REGION_TYPE_PRODUCT = 0
+    REGION_TYPE_EXAM = 1
+    REGION_TYPE_DEV_PUB = 2
+    REGION_TYPE_DEV_PRI = 3
+
+
+class ReliquaryFilterKey(betterproto.Enum):
+    RELIQUARY_FILTER_KEY_NONE = 0
+    RELIQUARY_FILTER_KEY_LOCK = 1
+    RELIQUARY_FILTER_KEY_LEVEL = 2
+    RELIQUARY_FILTER_KEY_WEARING = 3
+
+
+class ReliquaryFilterLevelState(betterproto.Enum):
+    RELIQUARY_FILTER_LEVEL_STATE_NONE = 0
+    RELIQUARY_FILTER_LEVEL_STATE_FULL_LEVEL = 1
+    RELIQUARY_FILTER_LEVEL_STATE_NOT_FULL_LEVEL = 2
+
+
+class ReliquaryFilterLockState(betterproto.Enum):
+    RELIQUARY_FILTER_LOCK_STATE_NONE = 0
+    RELIQUARY_FILTER_LOCK_STATE_LOCK = 1
+    RELIQUARY_FILTER_LOCK_STATE_UNLOCK = 2
+
+
+class ReliquaryFilterWearedState(betterproto.Enum):
+    RELIQUARY_FILTER_WEARED_STATE_NONE = 0
+    RELIQUARY_FILTER_WEARED_STATE_HAS_BEEN_WEARED = 1
+    RELIQUARY_FILTER_WEARED_STATE_HAS_NOT_BEEN_WEARED = 2
 
 
 class RemoveRandTaskInfoNotifyFinishReason(betterproto.Enum):
@@ -2683,6 +3125,30 @@ class ServerUpdateGlobalValueNotifyUpdateType(betterproto.Enum):
     UPDATE_TYPE_SET = 2
 
 
+class ServiceType(betterproto.Enum):
+    SERVICE_TYPE_NONE = 0
+    SERVICE_TYPE_CLIENT = 1
+    SERVICE_TYPE_GATE = 2
+    SERVICE_TYPE_GAME = 3
+    SERVICE_TYPE_NODE = 4
+    SERVICE_TYPE_DB = 5
+    SERVICE_TYPE_SNS = 6
+    SERVICE_TYPE_DISPATCH = 7
+    SERVICE_TYPE_MUIP = 8
+    SERVICE_TYPE_OFFLINE_MSG = 9
+    SERVICE_TYPE_MAIL = 10
+    SERVICE_TYPE_MP = 11
+    SERVICE_TYPE_HTTPPROXY = 12
+    SERVICE_TYPE_ACTIVITY = 13
+    SERVICE_TYPE_PATHFINDING = 14
+    SERVICE_TYPE_SOCIAL = 15
+    SERVICE_TYPE_OA = 16
+    SERVICE_TYPE_MATCH = 17
+    SERVICE_TYPE_OFFLINE_OP = 18
+    SERVICE_TYPE_TOTHEMOON = 19
+    SERVICE_TYPE_GCG = 20
+
+
 class WidgetSlotOp(betterproto.Enum):
     WIDGET_SLOT_OP_ATTACH = 0
     WIDGET_SLOT_OP_DETACH = 1
@@ -2753,6 +3219,75 @@ class VehicleInteractType(betterproto.Enum):
     VEHICLE_INTERACT_TYPE_NONE = 0
     VEHICLE_INTERACT_TYPE_IN = 1
     VEHICLE_INTERACT_TYPE_OUT = 2
+
+
+class VehicleSlot(betterproto.Enum):
+    VEHICLE_SLOT_OPERATOR = 0
+
+
+class VirtualItem(betterproto.Enum):
+    VIRTUAL_ITEM_VIRTUAL_NONE = 0
+    VIRTUAL_ITEM_VIRTUAL_AVATAR_EXP = 101
+    VIRTUAL_ITEM_VIRTUAL_PLAYER_EXP = 102
+    VIRTUAL_ITEM_VIRTUAL_FETTER_EXP = 105
+    VIRTUAL_ITEM_VIRTUAL_RESIN = 106
+    VIRTUAL_ITEM_VIRTUAL_LEGENDARY_KEY = 107
+    VIRTUAL_ITEM_VIRTUAL_ASTER_PROGRESS = 108
+    VIRTUAL_ITEM_VIRTUAL_ASTER_CREDIT = 109
+    VIRTUAL_ITEM_VIRTUAL_ASTER_TOKEN = 110
+    VIRTUAL_ITEM_VIRTUAL_SHIMMERING_ESSENCE = 111
+    VIRTUAL_ITEM_VIRTUAL_WARM_ESSENCE = 112
+    VIRTUAL_ITEM_VIRTUAL_WONDROUS_ESSENCE = 113
+    VIRTUAL_ITEM_VIRTUAL_TREASURE_MAP_TOKEN = 114
+    VIRTUAL_ITEM_VIRTUAL_SEA_LAMP_COIN = 115
+    VIRTUAL_ITEM_VIRTUAL_SEA_LAMP_POPULARITY = 116
+    VIRTUAL_ITEM_VIRTUAL_MECHANICUS_COIN = 117
+    VIRTUAL_ITEM_VIRTUAL_FLEUR_FAIR_CREDIT = 118
+    VIRTUAL_ITEM_VIRTUAL_FLEUR_FAIR_TOKEN = 119
+    VIRTUAL_ITEM_VIRTUAL_WATER_SPIRIT_COIN = 120
+    VIRTUAL_ITEM_VIRTUAL_HOME_EXP = 121
+    VIRTUAL_ITEM_VIRTUAL_CHANNELLER_SLAB_TOKEN = 122
+    VIRTUAL_ITEM_VIRTUAL_HIDE_AND_SEEK_COIN = 123
+    VIRTUAL_ITEM_VIRTUAL_SUMMER_TIME_DRAFT_WOOD = 124
+    VIRTUAL_ITEM_VIRTUAL_SUMMER_TIME_MINI_HARPASTUM = 125
+    VIRTUAL_ITEM_VIRTUAL_BOUNCE_CONJURING_COIN = 126
+    VIRTUAL_ITEM_VIRTUAL_BLITZ_RUSH_COIN_A = 127
+    VIRTUAL_ITEM_VIRTUAL_BLITZ_RUSH_COIN_B = 128
+    VIRTUAL_ITEM_VIRTUAL_CHESS_EXP = 129
+    VIRTUAL_ITEM_VIRTUAL_CHESS_COIN = 130
+    VIRTUAL_ITEM_VIRTUAL_LUNA_RITE_ATMOSPHERE = 131
+    VIRTUAL_ITEM_VIRTUAL_ROGUELIKE_COIN_A = 132
+    VIRTUAL_ITEM_VIRTUAL_ROGUELIKE_COIN_B = 133
+    VIRTUAL_ITEM_VIRTUAL_ROGUELIKE_COIN_C = 134
+    VIRTUAL_ITEM_VIRTUAL_WINTER_CAMP_COIN_A = 135
+    VIRTUAL_ITEM_VIRTUAL_WINTER_CAMP_COIN_B = 136
+    VIRTUAL_ITEM_VIRTUAL_LANTERN_RITE_COIN_A = 137
+    VIRTUAL_ITEM_VIRTUAL_LANTERN_RITE_COIN_B = 138
+    VIRTUAL_ITEM_VIRTUAL_LANTERN_RITE_COIN_C = 139
+    VIRTUAL_ITEM_VIRTUAL_ROGUE_DIARY_COIN = 140
+    VIRTUAL_ITEM_VIRTUAL_SUMMER_TIME_V2_COIN = 141
+    VIRTUAL_ITEM_VIRTUAL_ROGUE_DIARY_DUNGEON_COIN = 142
+    VIRTUAL_ITEM_VIRTUAL_GRAVEN_INNOCENCE_COIN_A = 143
+    VIRTUAL_ITEM_VIRTUAL_GRAVEN_INNOCENCE_COIN_B = 144
+    VIRTUAL_ITEM_VIRTUAL_TREASURE_SEELIE_COIN = 145
+    VIRTUAL_ITEM_VIRTUAL_VINTAGE_POPULARITY = 147
+    VIRTUAL_ITEM_VIRTUAL_GCG_EXP = 146
+    VIRTUAL_ITEM_VIRTUAL_VINTAGE_MARKET_COIN_A = 148
+    VIRTUAL_ITEM_VIRTUAL_VINTAGE_MARKET_COIN_B = 149
+    VIRTUAL_ITEM_VIRTUAL_VINTAGE_MARKET_COIN_C = 150
+    VIRTUAL_ITEM_VIRTUAL_FUNGUS_FIGHTER_CAPTURE_COIN = 151
+    VIRTUAL_ITEM_VIRTUAL_FUNGUS_FIGHTER_TRAINING_COIN = 152
+    VIRTUAL_ITEM_VIRTUAL_EFFIGY_CHALLENGE_V2_COIN = 153
+    VIRTUAL_ITEM_VIRTUAL_BRICK_BREAKER_COIN = 155
+    VIRTUAL_ITEM_VIRTUAL_HCOIN = 201
+    VIRTUAL_ITEM_VIRTUAL_SCOIN = 202
+    VIRTUAL_ITEM_VIRTUAL_MCOIN = 203
+    VIRTUAL_ITEM_VIRTUAL_HOME_COIN = 204
+    VIRTUAL_ITEM_VIRTUAL_GCG_COIN = 205
+    VIRTUAL_ITEM_VIRTUAL_INAZUMA_REPUTATION = 314
+    VIRTUAL_ITEM_VIRTUAL_MENGDE_REPUTATION = 315
+    VIRTUAL_ITEM_VIRTUAL_SUMERU_REPUTATION = 316
+    VIRTUAL_ITEM_VIRTUAL_LIYUE_REPUTATION = 317
 
 
 class WidgetExtraCdType(betterproto.Enum):
@@ -4289,11 +4824,11 @@ class FleurFairActivityDetailInfo(betterproto.Message):
     unk3300_konocamiiie: int = betterproto.uint32_field(3)
     chapter_info_list: List["FleurFairChapterInfo"] = betterproto.message_field(5)
     is_dungeon_unlocked: bool = betterproto.bool_field(6)
-    unk3300_hnfnmckhajk: Dict[
+    dungeon_section_info_map: Dict[
         int, "FleurFairDungeonSectionInfo"
     ] = betterproto.map_field(8, betterproto.TYPE_UINT32, betterproto.TYPE_MESSAGE)
     is_content_closed: bool = betterproto.bool_field(13)
-    unk3300_ficfghjncoa: Dict[int, "FleurFairMinigameInfo"] = betterproto.map_field(
+    minigame_info_map: Dict[int, "FleurFairMinigameInfo"] = betterproto.map_field(
         9, betterproto.TYPE_UINT32, betterproto.TYPE_MESSAGE
     )
     unk3300_loflgooimnh: int = betterproto.uint32_field(10)
@@ -7198,13 +7733,13 @@ class AvatarDataNotify(betterproto.Message):
     avatar_list: List["AvatarInfo"] = betterproto.message_field(14)
     avatar_rename_list: List["AvatarRenameInfo"] = betterproto.message_field(8)
     cur_avatar_team_id: int = betterproto.uint32_field(7)
-    unk3300_hhkjbgkhiej: List[int] = betterproto.uint32_field(6)
+    owned_flycloak_list: List[int] = betterproto.uint32_field(6)
     temp_avatar_guid_list: List[int] = betterproto.uint64_field(15)
     choose_avatar_guid: int = betterproto.uint64_field(1)
     avatar_team_map: Dict[int, "AvatarTeam"] = betterproto.map_field(
         11, betterproto.TYPE_UINT32, betterproto.TYPE_MESSAGE
     )
-    unk3300_mdnlggmghaf: List[int] = betterproto.uint32_field(5)
+    owned_costume_list: List[int] = betterproto.uint32_field(5)
     backup_avatar_team_order_list: List[int] = betterproto.uint32_field(3)
 
 
@@ -7866,8 +8401,8 @@ class BatchBuyGoodsRsp(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class BattlePassMission(betterproto.Message):
     cur_progress: int = betterproto.uint32_field(10)
-    unk3300_mbomolfkppo: int = betterproto.uint32_field(9)
-    unk3300_dahdcjncale: int = betterproto.uint32_field(14)
+    mission_type: int = betterproto.uint32_field(9)
+    reward_battle_pass_point: int = betterproto.uint32_field(14)
     total_progress: int = betterproto.uint32_field(12)
     mission_id: int = betterproto.uint32_field(15)
     mission_status: "BattlePassMissionMissionStatus" = betterproto.enum_field(11)
@@ -8892,9 +9427,9 @@ class ChatEmojiCollectionData(betterproto.Message):
 class ChatInfo(betterproto.Message):
     is_read: bool = betterproto.bool_field(3)
     time: int = betterproto.uint32_field(1)
-    unk3300_henldijmioe: int = betterproto.uint32_field(10)
+    to_uid: int = betterproto.uint32_field(10)
     uid: int = betterproto.uint32_field(11)
-    unk3300_phbehighocd: int = betterproto.uint32_field(5)
+    sequence: int = betterproto.uint32_field(5)
     text: str = betterproto.string_field(909, group="content")
     icon: int = betterproto.uint32_field(990, group="content")
     system_hint: "ChatInfoSystemHint" = betterproto.message_field(799, group="content")
@@ -10085,9 +10620,9 @@ class DataResVersionNotify(betterproto.Message):
     client_silence_version_suffix: str = betterproto.string_field(3)
     client_version_suffix: str = betterproto.string_field(9)
     is_data_need_relogin: bool = betterproto.bool_field(15)
-    unk3300_hmgcpagldhb: str = betterproto.string_field(12)
+    client_silence_md5: str = betterproto.string_field(12)
     client_data_version: int = betterproto.uint32_field(5)
-    unk3300_opgdbolklja: str = betterproto.string_field(2)
+    client_md5: str = betterproto.string_field(2)
     res_version_config: "ResVersionConfig" = betterproto.message_field(7)
 
 
@@ -15720,7 +16255,7 @@ class GetPlayerTokenRsp(betterproto.Message):
     retcode: int = betterproto.int32_field(2)
     client_version_random_key: str = betterproto.string_field(1152)
     psn_id: str = betterproto.string_field(242)
-    unk3300_ppgjmlbgjed: bool = betterproto.bool_field(9)
+    is_proficient_player: bool = betterproto.bool_field(9)
     platform_type: int = betterproto.uint32_field(10)
     reg_platform: int = betterproto.uint32_field(646)
     stop_server: "StopServerInfo" = betterproto.message_field(1897)
@@ -16690,20 +17225,20 @@ class HomeBalloonRecord(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class HomeLimitedShopInfo(betterproto.Message):
     uid: int = betterproto.uint32_field(9)
-    unk3300_fkgdidfibaa: int = betterproto.uint32_field(8)
+    next_guest_open_time: int = betterproto.fixed32_field(8)
     djinn_rot: "Vector" = betterproto.message_field(11)
-    unk3300_dliefpnmgfc: int = betterproto.uint32_field(5)
+    next_open_time: int = betterproto.fixed32_field(5)
     djinn_pos: "Vector" = betterproto.message_field(2)
-    unk3300_nojpdkdpppa: int = betterproto.uint32_field(15)
+    next_close_time: int = betterproto.fixed32_field(15)
 
 
 @dataclass(eq=False, repr=False)
 class HomeBasicInfo(betterproto.Message):
     exp: int = betterproto.uint64_field(3)
-    unk3300_akpappgofgn: int = betterproto.uint32_field(11)
-    unk3300_gnfgfiighea: int = betterproto.uint32_field(14)
+    home_owner_uid: int = betterproto.uint32_field(11)
+    cur_room_scene_id: int = betterproto.uint32_field(14)
     owner_nick_name: str = betterproto.string_field(6)
-    unk3300_kgcbfkgghdd: int = betterproto.uint32_field(4)
+    cur_module_id: int = betterproto.uint32_field(4)
     limited_shop_info: "HomeLimitedShopInfo" = betterproto.message_field(13)
     is_in_edit_mode: bool = betterproto.bool_field(7)
     level: int = betterproto.uint32_field(9)
@@ -17409,9 +17944,9 @@ class HomeRacingGallerySettleNotify(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class HomeResource(betterproto.Message):
-    unk3300_ljcaidecbnd: int = betterproto.uint32_field(6)
+    store_limit: int = betterproto.uint32_field(6)
     next_refresh_time: int = betterproto.fixed32_field(13)
-    unk3300_linapiipnob: int = betterproto.uint32_field(1)
+    store_value: int = betterproto.uint32_field(1)
 
 
 @dataclass(eq=False, repr=False)
@@ -20015,7 +20550,7 @@ class PlayerEnterSceneNotify(betterproto.Message):
     type: "EnterType" = betterproto.enum_field(12)
     scene_tag_id_list: List[int] = betterproto.uint32_field(5)
     scene_begin_time: int = betterproto.uint64_field(9)
-    unk3300_oolkieknkkn: int = betterproto.uint32_field(287)
+    enter_reason: int = betterproto.uint32_field(287)
     target_uid: int = betterproto.uint32_field(8)
     prev_pos: "Vector" = betterproto.message_field(10)
     scene_transaction: str = betterproto.string_field(370)
@@ -20239,10 +20774,10 @@ class ShortAbilityHashPair(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class PlayerLoginRsp(betterproto.Message):
     login_rand: int = betterproto.uint64_field(9)
-    unk3300_dhcmdhhdlff: bytes = betterproto.bytes_field(2)
-    unk3300_hmgcpagldhb: str = betterproto.string_field(16)
+    player_data: bytes = betterproto.bytes_field(2)
+    client_silence_md5: str = betterproto.string_field(16)
     total_tick_time: float = betterproto.double_field(530)
-    unk3300_llijkldbhnn: bool = betterproto.bool_field(5)
+    is_use_ability_hash: bool = betterproto.bool_field(5)
     is_audit: bool = betterproto.bool_field(930)
     birthday: str = betterproto.string_field(1387)
     unk3300_hgfnecijdln: bool = betterproto.bool_field(13)
@@ -20257,7 +20792,7 @@ class PlayerLoginRsp(betterproto.Message):
     res_version_config: "ResVersionConfig" = betterproto.message_field(808)
     client_silence_data_version: int = betterproto.uint32_field(1)
     target_uid: int = betterproto.uint32_field(15)
-    unk3300_neicpfbpnpd: str = betterproto.string_field(99)
+    register_cps: str = betterproto.string_field(99)
     is_sc_open: bool = betterproto.bool_field(1522)
     unk3300_iihdkknjpgd: bool = betterproto.bool_field(8)
     player_data_version: int = betterproto.uint32_field(14)
@@ -20276,7 +20811,7 @@ class PlayerLoginRsp(betterproto.Message):
     )
     ability_hash_code: int = betterproto.int32_field(12)
     client_data_version: int = betterproto.uint32_field(10)
-    unk3300_opgdbolklja: str = betterproto.string_field(1299)
+    client_md5: str = betterproto.string_field(1299)
     retcode: int = betterproto.int32_field(7)
     feature_block_info_list: List["FeatureBlockInfo"] = betterproto.message_field(138)
 
@@ -23313,7 +23848,7 @@ class StoreItemDelNotify(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class StoreWeightLimitNotify(betterproto.Message):
-    unk3300_icdkceojkkg: int = betterproto.uint32_field(14)
+    reliquary_count_limit: int = betterproto.uint32_field(14)
     unk3300_nikmcblhfnj: int = betterproto.uint32_field(10)
     unk3300_oonmfcgdmmf: int = betterproto.uint32_field(5)
     unk3300_jgpoddekapb: int = betterproto.uint32_field(1)
@@ -24049,11 +24584,11 @@ class TowerMonthlyBrief(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class TowerAllDataRsp(betterproto.Message):
     unk3300_hcdfjbhmhhf: int = betterproto.uint32_field(6)
-    unk3300_ildodkdadmi: int = betterproto.uint32_field(8)
+    next_schedule_change_time: int = betterproto.uint32_field(8)
     is_first_interact: bool = betterproto.bool_field(5)
     tower_schedule_id: int = betterproto.uint32_field(1)
     unk3300_jbackendhdg: int = betterproto.uint32_field(10)
-    unk3300_kghoiiaeihh: int = betterproto.uint32_field(610)
+    schedule_start_time: int = betterproto.uint32_field(610)
     retcode: int = betterproto.int32_field(11)
     unk3300_ohchcjgjidk: int = betterproto.uint32_field(4)
     unk3300_bbhkbddfpfe: int = betterproto.uint32_field(2)
@@ -24073,13 +24608,13 @@ class TowerAllDataRsp(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class TowerBriefDataNotify(betterproto.Message):
-    unk3300_olbdjegpdfe: int = betterproto.uint32_field(6)
-    unk3300_ildodkdadmi: int = betterproto.uint32_field(9)
+    last_level_index: int = betterproto.uint32_field(6)
+    next_schedule_change_time: int = betterproto.uint32_field(9)
     is_finished_entrance_floor: bool = betterproto.bool_field(14)
-    unk3300_cfkjboijdbd: int = betterproto.uint32_field(1)
+    last_floor_index: int = betterproto.uint32_field(1)
     tower_schedule_id: int = betterproto.uint32_field(11)
-    unk3300_kghoiiaeihh: int = betterproto.uint32_field(8)
-    unk3300_cnmmbjabmka: int = betterproto.uint32_field(7)
+    schedule_start_time: int = betterproto.uint32_field(8)
+    total_star_num: int = betterproto.uint32_field(7)
 
 
 @dataclass(eq=False, repr=False)
